@@ -1,0 +1,63 @@
+:root {
+    --primary-color: #424242;
+    --secondary-color: #ffa000;
+    --terciary-color: #ff6f00;
+    --light-color: #fafafa;
+}
+
+#header{
+    background-color: var(--primary-color) !important;
+}
+
+.quote {
+    font-family: 'Montserrat', sans-serif !important;
+    font-style: italic;
+    margin: auto;
+    text-align: center; 
+    margin-top: 50px;
+    font-size: 1.2rem !important;
+
+}
+
+h1 {
+    border-bottom: 5px solid var(--danger);
+    padding-bottom: 20px;
+    font-size: 3rem !important;
+}
+
+.author {
+    margin-top: 10px;
+}
+.info-text {
+    margin-top: 20px;
+    color: var(--secondary);
+    font-style: italic; 
+}
+
+.category {
+    font-family: 'Montserrat', sans-serif !important;
+    font-style: oblique;
+    color: red;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px; /* Set the fixed height of the footer here */
+    line-height: 50px; /* Vertically center the text there */
+    background-color: var(--primary-color);
+    text-align: center !important;
+    margin: auto !important;
+}
+
+.text-footer{
+    color: var(--light-color);
+    font-style: italic;
+}
+
+.footer a{
+    text-decoration: underline;
+    color: var(--light-color);
+}
+  
