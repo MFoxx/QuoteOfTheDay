@@ -33,9 +33,13 @@ async function quote () {
             quote_div.innerHTML = datas.quote;
             qod.push(datas.quote);
             author.innerHTML = `-${datas.author}`;
-            categoryDOM.innerHTML = `${datas.category}`;
+            categoryDOM.innerHTML = `${datas.tags}`;
             permalink.innerHTML = `<a href="${datas.permalink}" target='_blank'>Permalink</a>`
             console.log(`%cID: %c${datas.id}`, 'color: green; background: #222; font-size: 24px;', 'background: green; font-size: 24px; color: black;');
+            console.log(`%cCATEGORY: %c${datas.category}`, 'color: red; background: #222; font-size: 24px;', 'background: red; font-size: 24px; color: black;');
+            console.log(`%cDAY: %c${datas.date}`, 'color: blue; background: #222; font-size: 24px;', 'background: blue; font-size: 24px; color: black;');
+            console.log(`%cLENGTH: %c${datas.length}`, 'color: yellow; background: #222; font-size: 24px;', 'background: yellow; font-size: 24px; color: black;');
+            console.log(`%cLANGUAGE: %c${datas.language}`, 'color: purple; background: #222; font-size: 24px;', 'background: purple; font-size: 24px; color: black;');
         })
         .catch(error => console.warn(error));
 
