@@ -35,6 +35,7 @@ async function quote () {
             author.innerHTML = `-${datas.author}`;
             categoryDOM.innerHTML = `${datas.category}`;
             permalink.innerHTML = `<a href="${datas.permalink}" target='_blank'>Permalink</a>`
+            console.log(`%cID: %c${datas.id}`, 'color: green; background: #222; font-size: 24px;', 'background: green; font-size: 24px; color: black;');
         })
         .catch(error => console.warn(error));
 
