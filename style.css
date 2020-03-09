@@ -61,3 +61,17 @@ h1 {
     color: var(--light-color);
 }
   
+.permalink{
+    margin-top: 10px;
+}
+
+.permalink a{
+    font-style: italic;
+    color: grey;
+    text-decoration: none;
+    transition: 1s ease;
+}
+.permalink a:hover {
+    color: grey;
+    text-decoration: underline;
+}

@@ -4,6 +4,7 @@ const alert = document.querySelector('.info-text');
 const button = document.getElementById('copy-btn');
 const author = document.querySelector('.author');
 const categoryDOM = document.querySelector('.category');
+const permalink = document.querySelector('.permalink');
 let callTimes = 0;
 
 
@@ -33,6 +34,7 @@ async function quote () {
             qod.push(datas.quote);
             author.innerHTML = `-${datas.author}`;
             categoryDOM.innerHTML = `${datas.category}`;
+            permalink.innerHTML = `<a href="${datas.permalink}" target='_blank'>Permalink</a>`
         })
         .catch(error => console.warn(error));
 
