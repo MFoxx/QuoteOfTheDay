@@ -1,52 +1,49 @@
+// ENDPOINT
 const endpoint = 'http://quotes.rest/qod.json';
-const quote_div = document.querySelector('.quote');
-const alert = document.querySelector('.info-text');
-const button = document.getElementById('copy-btn');
-const author = document.querySelector('.author');
-const categoryDOM = document.querySelector('.category');
-const permalink = document.querySelector('.permalink');
+// DOM ELEMENTS
+[quote_div, alert, button, author, categoryDOM, permalink, DOMdate] = 
+    [   
+        document.querySelector('.quote'), 
+        document.querySelector('.info-text'), 
+        document.getElementById('copy-btn'), 
+        document.querySelector('.author'), 
+        document.querySelector('.category'), 
+        document.querySelector('.permalink'),
+        document.querySelector('.date')
+    ]
+// OTHER VARIABLES
 let callTimes = 0;
-
-
 let qod = []
 
-// async function quote () {
-        
-//     await fetch(endpoint)
-//         .then(blob => blob.json())
-//         .then(data => data.contents)
-//         .then(data => data.quotes)
-//         .then(data => data[0])
-//         .then(data => qod.push(data.quote));
-
-//     quote_div.innerHTML = qod;
-// }
-
+// FETCH function, and page render
 async function quote () {
         
     await fetch(endpoint)
         .then(blob => blob.json())
         .then(data => data.contents)
         .then(data => {
-            console.log(data.quotes[0])
-            const datas = data.quotes[0]
-            quote_div.innerHTML = datas.quote;
+            const datas = data.quotes[0];
             qod.push(datas.quote);
+            // Rendering page
+            quote_div.innerHTML = datas.quote;
             author.innerHTML = `-${datas.author}`;
-            categoryDOM.innerHTML = `${datas.tags}`;
-            permalink.innerHTML = `<a href="${datas.permalink}" target='_blank'>Permalink</a>`
+            categoryDOM.innerHTML = `${datas.category}`;
+            permalink.innerHTML = `<a href="${datas.permalink}" target='_blank'>Permalink</a>`;
+            DOMdate.innerHTML = datas.date;
+
+            // Logging stuff into console
+            console.clear();
             console.log(`%cID: %c${datas.id}`, 'color: green; background: #222; font-size: 24px;', 'background: green; font-size: 24px; color: black;');
-            console.log(`%cCATEGORY: %c${datas.category}`, 'color: red; background: #222; font-size: 24px;', 'background: red; font-size: 24px; color: black;');
             console.log(`%cDAY: %c${datas.date}`, 'color: blue; background: #222; font-size: 24px;', 'background: blue; font-size: 24px; color: black;');
             console.log(`%cLENGTH: %c${datas.length}`, 'color: yellow; background: #222; font-size: 24px;', 'background: yellow; font-size: 24px; color: black;');
             console.log(`%cLANGUAGE: %c${datas.language}`, 'color: purple; background: #222; font-size: 24px;', 'background: purple; font-size: 24px; color: black;');
+            console.info('https://github.com/MFoxx/QuoteOfTheDay');
         })
         .catch(error => console.warn(error));
 
 }
 
-quote();
-
+// Function for copying quote to clipboard
 function copyToClipBoard () {
     const quote = qod[0];
     const elem = document.createElement('textarea');
@@ -56,6 +53,7 @@ function copyToClipBoard () {
     document.execCommand("copy");
     document.body.removeChild(elem);
     
+    // Displaying how many times you smashed that copy button
     callTimes++;
     console.log(callTimes);
     // ALERT TEXT
@@ -66,4 +64,7 @@ function copyToClipBoard () {
     }
 }
 
+// Calling the quote function
+quote();
+// Listening for call on copy button, then executing copy function
 button.addEventListener('click', copyToClipBoard);
