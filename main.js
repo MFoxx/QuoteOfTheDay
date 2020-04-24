@@ -1,5 +1,5 @@
 // ENDPOINT
-const endpoint = 'http://quotes.rest/qod.json';
+const endpoint = 'https://quotes.rest/qod.json';
 // DOM ELEMENTS
 [quote_div, alert, button, author, categoryDOM, permalink, DOMdate] = 
     [   
